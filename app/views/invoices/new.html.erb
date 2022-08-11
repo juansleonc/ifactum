@@ -1,0 +1,44 @@
+<%= form_for Invoice.new, remote: false do |f| %>
+    <div class="form-group">
+        <label for="name">Numero de factura</label>
+        <%= f.text_field :number_invoice, class: 'form-control', placeholder: 'Numero de factura' %>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Nombres</label>
+        <%= f.text_field :first_name, class: 'form-control', placeholder: 'Nombres' %>
+    </div>
+    <div class="form-group">
+        <label for="name">Apellidos</label>
+        <%= f.text_field :last_name, class: 'form-control', placeholder: 'Apellidos' %>
+    </div>
+    <div class="form-group">
+        <label for="name">Apellidos</label>
+        
+        <%= f.select :company_id, 
+            options_for_select(options = Company.all.map{ |n| [n.name, n.id] } , params[:area]),
+            {}, { :class => 'span3 controls controls-row' } %>
+    </div>
+    <div class="form-group">
+        <% 1.times do |i| %>
+            <%= f.fields_for :items, Item.new  do |fi| %>
+                <div class="form-group">
+                    <label for="name">Nombre item 1</label>
+                    <%= fi.text_field :name, class: 'form-control', placeholder: 'Nombre item 1' %>
+                </div>
+                <div class="form-group">
+                    <label for="name">Descripcion item 1</label>
+                    <%= fi.text_field :description, class: 'form-control', placeholder: 'Descripcion item 1' %>
+                </div>
+                <div class="form-group">
+                    <label for="name">Precio item 1</label>
+                    <%= fi.text_field :price, class: 'form-control', placeholder: 'Precio item 1' %>
+                </div>
+                
+            <% end %>
+        <% end %>
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary">Pagar</button>
+<% end %>

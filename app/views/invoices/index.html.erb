@@ -1,0 +1,24 @@
+<%= link_to "Nueva factura", new_invoice_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Empresa</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+        <tr>
+        <th scope="row"><%= invoice.number_invoice %></th>
+        <td><%= invoice.first_name %></td>
+        <td><%= invoice.last_name %></td>
+        <td><%= invoice.company.name %></td>
+        
+        </tr>
+    <% end %>
+    
+  </tbody>
+</table>
