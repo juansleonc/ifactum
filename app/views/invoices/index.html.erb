@@ -6,6 +6,9 @@
       <th scope="col">Nombres</th>
       <th scope="col">Apellidos</th>
       <th scope="col">Empresa</th>
+      <th scope="col">Item nombre</th>
+      <th scope="col">Item descripcion</th>
+      <th scope="col">Item precio</th>
       
     </tr>
   </thead>
@@ -16,6 +19,9 @@
         <td><%= invoice.first_name %></td>
         <td><%= invoice.last_name %></td>
         <td><%= invoice.company.name %></td>
+        <td><%= invoice.items.first.name %></td>
+        <td><%= invoice.items.first.description %></td>
+        <td><%= number_to_currency invoice.items.first.price %></td>
         
         </tr>
     <% end %>
