@@ -74,3 +74,6 @@ end
 
 gem 'pg'
 gem 'bootstrap', '~> 5.1.3'
+group :production do
+  gem 'rails_12factor'
+end

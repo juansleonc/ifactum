@@ -32,4 +32,7 @@ development:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
